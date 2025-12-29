@@ -1,0 +1,6 @@
+# Ignorar archivo de variables de entorno
+.env
+
+# Ignorar claves privadas
+*.pem
+*.key

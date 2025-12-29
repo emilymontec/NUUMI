@@ -1,37 +1,41 @@
 import { Router } from "express";
-import { transactions } from "../db.js";
+import { supabase } from "../../db.js";
 
 const router = Router();
 
-// GET all
-router.get("/", (req, res) => {
-  res.json(transactions);
+// GET
+router.get("/", async (req, res) => {
+  const { data, error } = await supabase
+    .from("transactions")
+    .select("*")
+    .order("date", { ascending: false });
+
+  if (error) return res.status(500).json(error);
+  res.json(data);
 });
 
-// POST create
-router.post("/", (req, res) => {
+// POST
+router.post("/", async (req, res) => {
   const { type, amount, category, date } = req.body;
 
-  const newTransaction = {
-    id: Date.now(),
-    type,
-    amount,
-    category,
-    date,
-  };
+  const { data, error } = await supabase
+    .from("transactions")
+    .insert([{ type, amount, category, date }])
+    .select()
+    .single();
 
-  transactions.push(newTransaction);
-  res.status(201).json(newTransaction);
+  if (error) return res.status(500).json(error);
+  res.status(201).json(data);
 });
 
 // DELETE
-router.delete("/:id", (req, res) => {
-  const id = Number(req.params.id);
-  const index = transactions.findIndex(t => t.id === id);
+router.delete("/:id", async (req, res) => {
+  const { error } = await supabase
+    .from("transactions")
+    .delete()
+    .eq("id", req.params.id);
 
-  if (index === -1) return res.status(404).json({ error: "Not found" });
-
-  transactions.splice(index, 1);
+  if (error) return res.status(500).json(error);
   res.json({ success: true });
 });
 
