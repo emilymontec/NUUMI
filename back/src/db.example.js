@@ -1,4 +1,4 @@
-export let transactions = [
+export let activities = [
   {
     id: 1,
     type: "income",

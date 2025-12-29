@@ -1,6 +1,7 @@
 import express from "express"; // Importing express module
 import cors from "cors"; // Importing cors module
-import transactionsRoutes from "./routes/transactions.routes.js";
+import activitiesRoutes from "./routes/activities.routes.js";
+
 
 const app = express(); // Creating an instance of express
 app.use(cors()); // Enabling CORS for all routes
@@ -21,7 +22,7 @@ app.get("/api/summary", (req, res) => {
 });
 
 
-app.use("/api/transactions", transactionsRoutes);
+app.use("/api/activities", activitiesRoutes);
 
 
 app.listen(4000, () => { // Starting the server on port 4000
