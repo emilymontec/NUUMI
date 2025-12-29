@@ -9,7 +9,7 @@ app.use(express.json()); // Middleware to parse JSON request bodies
 
 
 app.get("/", (req, res) => { // Defining a GET route at the root path
-  res.json({ status: "Backend is running" }); // Sending a JSON response
+  res.json({ status: "Nuumi Server is running..." }); // Sending a JSON response
 });
 
 
