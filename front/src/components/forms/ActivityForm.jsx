@@ -76,7 +76,7 @@ export default function ActivityForm({ onClose, onCreated }) {
             type="submit"
             className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
           >
-            Guardar
+            Agregar
           </button>
         </div>
       </form>
