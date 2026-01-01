@@ -22,7 +22,7 @@ const getHomeCards = async () => {
       expenses,
     },
     todayCard: {
-      expensesToday: expenses, // luego lo filtramos por fecha
+      expensesToday: expenses,
     },
     insightCard: {
       message:
