@@ -20,7 +20,6 @@ export const useDashboard = () => {
     loadActivities();
   }, []);
 
-  // 🔢 cálculos
   const income = useMemo(
     () =>
       activities
@@ -39,7 +38,6 @@ export const useDashboard = () => {
 
   const balance = income - expenses;
 
-  // 🧠 ESTE es el dashboardData (shape NUUMI)
   const dashboardData = {
     status: {
       balance

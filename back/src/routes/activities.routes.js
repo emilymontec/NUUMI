@@ -3,10 +3,6 @@ import { supabase } from "../config/db.js";
 
 const router = Router();
 
-/**
- * GET /api/activities
- * Obtiene todas las actividades
- */
 router.get("/", async (req, res) => {
   try {
     const { data, error } = await supabase
@@ -25,10 +21,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-/**
- * POST /api/activities
- * Crea una nueva actividad
- */
+
 router.post("/", async (req, res) => {
   try {
     const { type, amount, category, date } = req.body;
@@ -63,9 +56,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-/**
- * DELETE /api/activities/:id
- */
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;

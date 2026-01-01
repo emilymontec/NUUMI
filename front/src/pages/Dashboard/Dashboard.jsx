@@ -21,7 +21,6 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-black-100 p-6 space-y-6">
-      {/* Header */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">¿Cómo estoy ahora?</h1>
         <button
@@ -32,7 +31,6 @@ export default function Dashboard() {
         </button>
       </div>
 
-      {/* FLASHCARDS */}
       {loading ? (
         <div className="flex gap-4 overflow-x-auto">
           <SkeletonCard />
@@ -61,7 +59,6 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* Actividades recientes (sin tocar) */}
       <div className="bg-grey rounded-2xl shadow p-4">
         <h2 className="text-lg font-semibold mb-3">
           Actividades recientes
@@ -99,7 +96,6 @@ export default function Dashboard() {
         </ul>
       </div>
 
-      {/* Modal */}
       {showForm && (
         <MovementForm
           onClose={() => setShowForm(false)}
